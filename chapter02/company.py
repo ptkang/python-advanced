@@ -49,7 +49,7 @@
 # 4. 不用显示的去调用，python解释器会在使用对应的语法或函数时自动调用
 # 5. 魔法函数不存在继承关系
 # 6. 魔法函数改变对象的类型
-# 7. python内部会尽可能提高语言的效率，内部会做很多优化，不会写死，会处理他抛出的异常.
+# 7. python内部会尽可能提高语言的效率，内部会做很多优化，不会写死，会处理他抛出的异常
 
 class Company():
     def __init__(self, employee_list):
@@ -63,6 +63,9 @@ class Company():
 
     def __repr__(self):
         return '|'.join(self.employee)
+
+    def __len__(self):
+        return len(self.employee)
 
 company = Company(['Tom', 'Bob', 'Sara'])
 
