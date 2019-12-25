@@ -94,7 +94,7 @@ class BaseModel(metaclass=ModelMetaClass):
             value = getattr(self, db_column, None)
             fields.append(db_column)
             values.append(str(value))
-        sql = "insert {db_table}({fields}) value({values})".format(db_table=self._meta['db_table'], fields=','.join(fields), values=','.join(values))
+        sql = "insert {db_table}({fields}) value({values})".format(db_table=self._meta['db_table'], fields=','.join("'{0}'".format(w) for w in fields), values=','.join("'{0}'".format(w) for w in values))
         print(sql)
 
 class User(BaseModel):
